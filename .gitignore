@@ -1,0 +1,11 @@
+.DS_Sttore
+.idea/
+.idea/*
+.vscode
+*.sublime*
+bpm-debug.*
+
+dist/
+node_modules/
+package-lock.json
+app/css/*
