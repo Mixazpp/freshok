@@ -1,8 +1,7 @@
 $(function () {
 
   $('.submenu__btn').on('click', function(){
-    $('.submenu__btn').toggleClass('submenu__btn--active')
-    
+    $('.submenu__list').toggleClass('active')
 });
 
 });
@@ -11,14 +10,34 @@ $(function () {
 
 var swiper = new Swiper('.top-slider__box', {
 
-  loop: true,
   slidesPerView: 1,
   spaceBetween: 20,
 
   navigation: {
-    nextEl: '.top-slider__next',
-    prevEl: '.top-slider__prev',
+    nextEl: '.top-slider--next',
+    prevEl: '.top-slider--prev',
   },
 });
 
-var mixer = mixitup('.top-products__content');
+
+var swiper = new Swiper('.brands__slider', {
+  loop: true,
+  slidesPerView: 6,
+  spaceBetween: 140,
+
+
+});
+
+
+
+var containerEl1 = document.querySelector('[data-ref="container-1"]');
+var containerEl2 = document.querySelector('[data-ref="container-2"]');
+ 
+  var config = {
+    controls: {
+      scope: 'local'
+    }
+  };
+ 
+  var mixer1 = mixitup(containerEl1, config);
+  var mixer2 = mixitup(containerEl2, config);
