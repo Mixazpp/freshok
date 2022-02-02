@@ -1,7 +1,8 @@
 $(function () {
 
   $('.submenu__btn').on('click', function(){
-    $('.submenu__list').toggleClass('active')
+    $('.submenu__list').toggleClass('active'),
+    $('.submenu').toggleClass('submenu--active')
 });
 
 });
@@ -14,8 +15,8 @@ var swiper = new Swiper('.top-slider__box', {
   spaceBetween: 20,
 
   navigation: {
-    nextEl: '.top-slider--next',
-    prevEl: '.top-slider--prev',
+    nextEl: '.top-slider__next',
+    prevEl: '.top-slider__prev',
   },
 });
 

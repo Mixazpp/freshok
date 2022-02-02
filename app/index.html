@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Интернет магазин ФРЕШОК</title>
-  <link href="css/style.min.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -14,6 +13,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="css/style.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -21,28 +21,28 @@
     <header class="header">
       <div class="header__top">
         <div class="container">
-          <div class="header__top-content">
-            <ul class="header__top-list">
-              <li class="header__top-item">
-                <a class="header__top-link header__top-link--address animation" href="#">
+          <div class="header__content">
+            <ul class="header__list">
+              <li class="header__item">
+                <a class="header__link header__link--address animation" href="#">
                   адрес и время доставки
                 </a>
               </li>
-              <li class="header__top-item">
-                <a class="header__top-link header__top-link--tel animation" href="#">
+              <li class="header__item">
+                <a class="header__link header__link--tel animation" href="#">
                   горячая линия 24/7
                 </a>
               </li>
             </ul>
-            <ul class="header__top-list">
-              <li class="header__top-item">
-                <a class="header__top-link animation" href="#">доставка</a>
+            <ul class="header__list">
+              <li class="header__item">
+                <a class="header__link animation" href="#">доставка</a>
               </li>
-              <li class="header__top-item">
-                <a class="header__top-link animation" href="#">о нас</a>
+              <li class="header__item">
+                <a class="header__link animation" href="#">о нас</a>
               </li>
-              <li class="header__top-item">
-                <a class="header__top-link animation" href="#">новости</a>
+              <li class="header__item">
+                <a class="header__link animation" href="#">новости</a>
               </li>
             </ul>
           </div>
@@ -51,7 +51,7 @@
 
       <div class="header__bottom">
         <div class="container">
-          <div class="header__bottom-content">
+          <div class="header__box">
             <a class="logo" href="#">
               <img class="logo__img" src="images/logo.svg" width="200" height="60" alt="логотип">
             </a>
@@ -105,89 +105,103 @@
               <button class="form-search__btn" type="submit">поиск</button>
             </form>
             <div class="user-nav">
-              <button class="user-nav__btn" type="button">
-                <svg class="user-nav__img">
-                  <use xlink:href="images/sprite.svg#icon-user"></use>
-                </svg>
-                <span class="sr-only">Личный кабинет</span>
-              </button>
-              <button class="user-nav__btn" type="button">
-                <svg class="user-nav__img">
-                  <use xlink:href="images/sprite.svg#icon-heart"></use>
-                </svg>
-                <span class="sr-only">понравилось</span>
-                <span class="user-nav__num">12</span>
-              </button>
-              <button class="user-nav__btn" type="button">
-                <svg class="user-nav__img">
-                  <use xlink:href="images/sprite.svg#icon-cart"></use>
-                </svg>
-                <span class="sr-only">корзина</span>
-                <span class="user-nav__num">12</span>
-              </button>
+              <ul class="user-nav__list">
+                <li class="user-nav__item">
+                  <button class="user-nav__btn" type="button">
+                    <svg class="user-nav__img">
+                      <use xlink:href="images/sprite.svg#icon-user"></use>
+                    </svg>
+                    <span class="sr-only">Личный кабинет</span>
+                  </button>
+                </li>
+                <li class="user-nav__item">
+                  <button class="user-nav__btn" type="button">
+                    <svg class="user-nav__img">
+                      <use xlink:href="images/sprite.svg#icon-heart"></use>
+                    </svg>
+                    <span class="sr-only">понравилось</span>
+                    <span class="user-nav__num">12</span>
+                  </button>
+                </li>
+                <li class="user-nav__item">
+                  <button class="user-nav__btn" type="button">
+                    <svg class="user-nav__img">
+                      <use xlink:href="images/sprite.svg#icon-cart"></use>
+                    </svg>
+                    <span class="sr-only">корзина</span>
+                    <span class="user-nav__num">12</span>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <main class="main">
+    <!-- <main class="main">
       <h1 class="sr-only">Интернет магазин доставка еды ФрешОк</h1>
       <section class="top-slider">
         <h2 class="sr-only">Актуальные акции</h2>
         <div class="top-slider__box swiper">
           <ul class="top-slider__wrapper swiper-wrapper">
             <li class="top-slider__slide swiper-slide" style="background-image: url('images/slider/slide-bg1.jpg');">
-              <div class="top-slider__content">
-                <h3 class="top-slider__title">
-                  свежачок вам в хату
-                  <span class="top-slider__subtitle">Скидка -50%</span>
-                </h3>
-                <div class="top-slider__text">
-                  <p>
-                    Только с 7 по 13 июля скидка на сезонные фрукты и овощи до 50%. Торопитесь!
-                  </p>
+              <div class="container">
+                <div class="top-slider__content">
+                  <h3 class="top-slider__title">
+                    свежачок вам в хату
+                    <span class="top-slider__subtitle">Скидка -50%</span>
+                  </h3>
+                  <div class="top-slider__text">
+                    <p>
+                      Только с 7 по 13 июля скидка на сезонные фрукты и овощи до 50%. Торопитесь!
+                    </p>
+                  </div>
+                  <a class="top-slider__button button" href="#">Купить сейчас</a>
                 </div>
-                <a class="top-slider__button button" href="#">Купить сейчас</a>
               </div>
             </li>
             <li class="top-slider__slide swiper-slide" style="background-image: url('images/slider/slide-bg2.jpg');">
-              <div class="top-slider__content">
-                <h3 class="top-slider__title">
-                  накрути себе томатов
-                  <span class="top-slider__subtitle">АКЦИЯ: 3 кг по цене 1</span>
-                </h3>
-                <div class="top-slider__text">
-                  <p>
-                    Только с 12 по 15 июля скидка на домашние помидорчики
-                  </p>
+              <div class="container">
+                <div class="top-slider__content">
+                  <h3 class="top-slider__title">
+                    накрути себе томатов
+                    <span class="top-slider__subtitle">АКЦИЯ: 3 кг по цене 1</span>
+                  </h3>
+                  <div class="top-slider__text">
+                    <p>
+                      Только с 12 по 15 июля скидка на домашние помидорчики
+                    </p>
+                  </div>
+                  <a class="top-slider__button button" href="#">Купить сейчас</a>
                 </div>
-                <a class="top-slider__button button" href="#">Купить сейчас</a>
               </div>
             </li>
             <li class="top-slider__slide swiper-slide" style="background-image: url('images/slider/slide-bg3.jpg');">
-              <div class="top-slider__content">
-                <h3 class="top-slider__title">
-                  Пусть остальные позеленеют от зависти
-                  <span class="top-slider__subtitle">Распродажа зелени</span>
-                </h3>
-                <a class="top-slider__button button" href="#">Купить сейчас</a>
+              <div class="container">
+                <div class="top-slider__content">
+                  <h3 class="top-slider__title">
+                    Пусть остальные позеленеют от зависти
+                    <span class="top-slider__subtitle">Распродажа зелени</span>
+                  </h3>
+                  <a class="button" href="#">Купить сейчас</a>
+                </div>
               </div>
             </li>
           </ul>
 
-          <div class="top-slider--prev swiper-button-prev">
+          <div class="top-slider__prev swiper-button-prev">
             <button class="top-slider__btn" type="button">
               <span class="sr-only">предыдущий слайд</span>
-              <svg class="top-slider__btn--prev">
+              <svg class="top-slider__btn-prev">
                 <use xlink:href="images/sprite.svg#icon-prev"></use>
               </svg>
             </button>
           </div>
-          <div class="top-slider--next swiper-button-next">
+          <div class="top-slider__next swiper-button-next">
             <button class="top-slider__btn" type="button">
               <span class="sr-only">следующий слайд</span>
-              <svg class="top-slider__btn--next">
+              <svg class="top-slider__btn-next">
                 <use xlink:href="images/sprite.svg#icon-next"></use>
               </svg>
             </button>
@@ -250,7 +264,7 @@
                     <span class="stickers__item stickers__item--sale">-50%</span>
                   </div>
                   <button class="product-card__heart" type="button">
-                    <svg class="product-card__heart-product">
+                    <svg class="product-card__icon-heart">
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="sr-only">В избранное</span>
@@ -278,7 +292,7 @@
               <li class="top-products__item mix category-c">
                 <article class="product-card">
                   <button class="product-card__heart" type="button">
-                    <svg class="product-card__heart-product">
+                    <svg class="product-card__icon-heart">
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="sr-only">В избранное</span>
@@ -307,7 +321,7 @@
                     <span class="stickers__item stickers__item--sale">-50%</span>
                   </div>
                   <button class="product-card__heart" type="button">
-                    <svg class="product-card__heart-product">
+                    <svg class="product-card__icon-heart">
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="sr-only">В избранное</span>
@@ -333,7 +347,7 @@
               <li class="top-products__item mix category-b">
                 <article class="product-card">
                   <button class="product-card__heart" type="button">
-                    <svg class="product-card__heart-product">
+                    <svg class="product-card__icon-heart">
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="sr-only">В избранное</span>
@@ -362,7 +376,7 @@
                     <span class="stickers__item stickers__item--hit">хит</span>
                   </div>
                   <button class="product-card__heart" type="button">
-                    <svg class="product-card__heart-product">
+                    <svg class="product-card__icon-heart">
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="sr-only">В избранное</span>
@@ -391,7 +405,7 @@
                     <span class="stickers__item stickers__item--sale">-30%</span>
                   </div>
                   <button class="product-card__heart" type="button">
-                    <svg class="product-card__heart-product">
+                    <svg class="product-card__icon-heart">
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="sr-only">В избранное</span>
@@ -422,7 +436,7 @@
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
                   <button class="product-card__heart" type="button">
-                    <svg class="product-card__heart-product">
+                    <svg class="product-card__icon-heart">
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="sr-only">В избранное</span>
@@ -452,7 +466,7 @@
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
                   <button class="product-card__heart" type="button">
-                    <svg class="product-card__heart-product">
+                    <svg class="product-card__icon-heart">
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="sr-only">В избранное</span>
@@ -514,23 +528,21 @@
         <div class="container">
           <h2 class="title">Акции</h2>
           <div data-ref="container-2">
-            <ul class="filter-stock filter-products">
-              <li class="filter-stock__elem filter-products__elem">
-                <button class="filter-stock__btn filter-products__btn" type="button" data-filter="all">Все
+            <ul class="filter-products">
+              <li class="filter-products__elem">
+                <button class="filter-products__btn" type="button" data-filter="all">Все
                   товары</button>
               </li>
-              <li class="filter-stock__elem filter-products__elem">
-                <button class="filter-stock__btn filter-products__btn" type="button"
-                  data-filter=".category-1">новинки</button>
+              <li class="filter-products__elem">
+                <button class="filter-products__btn" type="button" data-filter=".category-1">новинки</button>
               </li>
-              <li class="filter-stock__elem filter-products__elem">
-                <button class="filter-stock__btn filter-products__btn" type="button"
-                  data-filter=".category-2">хиты</button>
+              <li class="filter-products__elem">
+                <button class="filter-products__btn" type="button" data-filter=".category-2">хиты</button>
               </li>
             </ul>
             <ul class="stock__content">
               <li class="stock__item mix category-1 ">
-                <article class="product-card product-card__stock">
+                <article class="product-card stock__product-card">
                   <div class="stickers">
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
@@ -557,7 +569,7 @@
                 </article>
               </li>
               <li class="stock__item mix category-2">
-                <article class="product-card product-card__stock">
+                <article class="product-card stock__product-card">
                   <div class="stickers">
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
@@ -585,7 +597,7 @@
                 </article>
               </li>
               <li class="stock__item mix category-2">
-                <article class="product-card product-card__stock">
+                <article class="product-card stock__product-card">
                   <div class="stickers">
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
@@ -613,7 +625,7 @@
                 </article>
               </li>
               <li class="stock__item mix category-2">
-                <article class="product-card product-card__stock">
+                <article class="product-card stock__product-card">
                   <div class="stickers">
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
@@ -641,7 +653,7 @@
                 </article>
               </li>
               <li class="stock__item mix category-2">
-                <article class="product-card product-card__stock">
+                <article class="product-card stock__product-card">
                   <div class="stickers">
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
@@ -669,7 +681,7 @@
                 </article>
               </li>
               <li class="stock__item mix category-2">
-                <article class="product-card product-card__stock">
+                <article class="product-card stock__product-card">
                   <div class="stickers">
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
@@ -697,7 +709,7 @@
                 </article>
               </li>
               <li class="stock__item mix category-2">
-                <article class="product-card product-card__stock">
+                <article class="product-card stock__product-card">
                   <div class="stickers">
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
@@ -725,7 +737,7 @@
                 </article>
               </li>
               <li class="stock__item mix category-2">
-                <article class="product-card product-card__stock">
+                <article class="product-card stock__product-card">
                   <div class="stickers">
                     <span class="stickers__item stickers__item--new">новинка</span>
                   </div>
@@ -735,7 +747,6 @@
                   </a>
                   <h3 class="product-card__name">Свинина мякоть, 1 кг</h3>
                   <div class="presence">
-
                     <span class="presence__item presence__item--available">в наличии</span>
                   </div>
                   <div class="product-card__bottom">
@@ -759,70 +770,71 @@
       </section>
 
       <section class="brands">
+        <h2 class="sr-only">Наши партнеры</h2>
         <div class="container">
           <div class="brands__slider swiper">
-            <div class="brands__slider__wrapper swiper-wrapper">
-              <div class="brands__slide swiper-slide">
+            <ul class="brands__wrapper swiper-wrapper">
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/sprite.svg" alt="спрайт">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/dr-pepper.svg" alt="доктор пеппер">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/сoca-сola.svg" alt="кока- кола">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/pepsi.svg" alt="пепси- кола">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/redbull.svg" alt="ред- булл">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/fanta.svg" alt="фанта">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/sprite.svg" alt="спрайт">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/dr-pepper.svg" alt="доктор пеппер">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/сoca-сola.svg" alt="кока- кола">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/pepsi.svg" alt="пепси- кола">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/redbull.svg" alt="ред- булл">
                 </a>
-              </div>
-              <div class="brands__slide swiper-slide">
+              </li>
+              <li class="brands__slide swiper-slide">
                 <a class="brands__link" href="#">
                   <img class="brands__img" src="images/icons/fanta.svg" alt="фанта">
                 </a>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -831,41 +843,54 @@
         <div class="container">
           <div class="news__top">
             <h2 class="title">наши новости</h2>
-            <a class="news__all-link" href="#">все новости</a>
+            <a class="news__all" href="#">все новости</a>
           </div>
           <ul class="news__list">
-            <li class="news__item" style="background-image: url('images/news/news-bg1.jpg');">
+            <li class="news__item">
               <a class="news__link" href="#">
+                <img class="news__img" src="images/news/news-bg1.jpg" width="410" height="240"
+                  alt="распродажа сезонных фруктов">
                 <div class="news__date">
-                  <span class="news__month">июль</span>
-                  <span class="news__dey">15</span>
+                  <time class="news__month" datatime="2022-06-15">июль</time>
+                  <time class="news__dey" datatime="2022-06-15">15</time>
                 </div>
-                <p class="news__text">
-                  Событие этого лета: распродажа сезонных фруктов в онлайн-маркете ФрешОК.
-                  Торопись, пока всё не разобрали!
-                </p>
+                <div class="news__text">
+                  <p>
+                    Событие этого лета: распродажа сезонных фруктов в онлайн-маркете ФрешОК.
+                    Торопись, пока всё не разобрали!
+                  </p>
+                </div>
               </a>
             </li>
-            <li class="news__item" style="background-image: url('images/news/news-bg2.jpg');">
+            <li class="news__item">
               <a class="news__link" href="#">
+                <img class="news__img" src="images/news/news-bg2.jpg" width="410" height="240"
+                  alt="выбор манго в нашем онлайн-маркете">
+
                 <div class="news__date">
-                  <span class="news__month">май</span>
-                  <span class="news__dey">07</span>
+                  <time class="news__month" datatime="2022-05-07">май</time>
+                  <time class="news__dey" datatime="2022-05-07">07</time>
                 </div>
-                <p class="news__text">
-                  Шикарнейший выбор манго в нашем онлайн-маркете
-                </p>
+                <div class="news__text">
+                  <p>
+                    Шикарнейший выбор манго в нашем онлайн-маркете
+                  </p>
+                </div>
               </a>
             </li>
-            <li class="news__item" style="background-image: url('images/news/news-bg3.jpg');">
+            <li class="news__item">
               <a class="news__link" href="#">
+                <img class="news__img" src="images/news/news-bg3.jpg" width="410" height="240" alt="папайя">
+
                 <div class="news__date">
-                  <span class="news__month">февраль</span>
-                  <span class="news__dey">20</span>
+                  <time class="news__month" datatime="2023-02-20">февраль</time>
+                  <time class="news__dey" datatime="2023-02-20">20</time>
                 </div>
-                <p class="news__text">
-                  Всё, что вы хотели знать о папайя
-                </p>
+                <div class="news__text">
+                  <p>
+                    Всё, что вы хотели знать о папайя
+                  </p>
+                </div>
               </a>
             </li>
           </ul>
@@ -875,29 +900,16 @@
 
     </main>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <footer class="footer">
 
       <div class="container">
+        <a class="logo footer__logo" href="#">
+          <img class="logo__img" src="images/logo.svg" width="200" height="60" alt="логотип">
+        </a>
         <div class="footer__content">
 
           <div class="footer__content-box">
-            <a class="logo footer__logo" href="#">
-              <img class="logo__img" src="images/logo.svg" width="200" height="60" alt="логотип">
-            </a>
+
             <p class="footer__text">Следите за нашими акциями</p>
             <form class="form-subscribe">
               <label class="sr-only" for="mail">Подписаться</label>
@@ -944,7 +956,7 @@
             </ul>
             <ul class="social">
               <li class="social__item">
-                <a class="social__link" href="#" target="blanck">
+                <a class="social__link" href="#" target="_blank">
                   <svg class="social__icon">
                     <use xlink:href="images/sprite.svg#icon-facebook"></use>
                   </svg>
@@ -952,7 +964,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link" href="#" target="blanck">
+                <a class="social__link" href="#" target="_blank">
                   <svg class="social__icon">
                     <use xlink:href="images/sprite.svg#icon-youtube"></use>
                   </svg>
@@ -960,7 +972,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link" href="#" target="blanck">
+                <a class="social__link" href="#" target="_blank">
                   <svg class="social__icon">
                     <use xlink:href="images/sprite.svg#icon-telegram"></use>
                   </svg>
@@ -968,7 +980,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link" href="#" target="blanck">
+                <a class="social__link" href="#" target="_blank">
                   <svg class="social__icon">
                     <use xlink:href="images/sprite.svg#icon-instagram"></use>
                   </svg>
@@ -999,7 +1011,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 
   <script src="js/main.min.js"></script>

@@ -11,6 +11,10 @@ body {
   background-color: $white;
 }
 
+img{
+  object-fit: cover;
+}
+
 .wrapper {
   min-height: 100%;
   display: flex;
@@ -36,6 +40,7 @@ body {
 
 .container {
   max-width: 1320px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -55,10 +60,11 @@ body {
   text-transform: uppercase;
   color: $dark-900;
   margin-bottom: 30px;
+  @include line-clamp(1);
 }
 
 .button {
-  @extend %opensans-400;
+  font-weight: 400;
   background-color: $green-900;
   border-radius: 6px;
   font-size: 18px;
@@ -85,5 +91,9 @@ body {
   transition: opacity 0.3s;
   &:hover {
     opacity: 0.7;
+  }
+  &:focus {
+    box-shadow: 0px 0px 0px 3px #EFF6E7;
+    border-radius: 3px;
   }
 }

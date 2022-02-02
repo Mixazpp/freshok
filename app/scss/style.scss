@@ -2,36 +2,40 @@
 @import 'fonts';
 @import 'vars';
 @import 'libs';
+@import 'mixins';
 @import 'global';
 @import 'products';
 
 .header {
+
   &__top {
     background-color: $dark-800;
   }
 
-  &__top-content {
+  &__content {
     padding: 14px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: $white;
-    @extend %opensans-700;
+    font-weight: 700;
     font-size: 13px;
     line-height: 1.4;
     letter-spacing: 0.03em;
     text-transform: uppercase;
   }
 
-  &__top-list {
+  &__list {
     display: flex;
   }
 
-  &__top-item:not(:last-child) {
-    margin-right: 24px;
+  &__item {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
   }
 
-  &__top-link {
+  &__link {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -56,11 +60,6 @@
       &::before {
         filter: invert(100%) sepia(29%) saturate(813%) hue-rotate(25deg) brightness(99%) contrast(87%);
       }
-    }
-
-    &:focus {
-      box-shadow: 0px 0px 0px 3px #EFF6E7;
-      border-radius: 3px;
     }
 
     &--address {
@@ -88,7 +87,7 @@
     padding: 25px 0;
   }
 
-  &__bottom-content {
+  &__box {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -129,6 +128,15 @@
       background-image: url('../images/icons/сhevron.svg');
       background-repeat: no-repeat;
     }
+
+  }
+
+  &--active {
+    border-radius: 6px 6px 0 0;
+
+    .submenu__btn::after {
+      transform: rotate(180deg);
+    }
   }
 
   &__item {
@@ -158,7 +166,7 @@
     color: $black;
     font-size: 16px;
     line-height: 1.2;
-    border: 3px solid transparent;
+    border-left: 3px solid transparent;
     transition: border-color 0.3s, color 0.3s;
 
     &:hover {
@@ -175,35 +183,36 @@
     }
   }
 
-  &__line,
-  &__line::before,
-  &__line::after {
+  &__line {
     position: absolute;
     height: 1px;
     background-color: $green-900;
-  }
-
-  &__line {
     left: 18px;
     top: 50%;
     width: 20px;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 25px;
+      left: 0;
+      position: absolute;
+      height: 1px;
+      background-color: $green-900;
+    }
+
+    &::before {
+      top: -7px;
+    }
+
+    &::after {
+      top: 7px;
+    }
   }
 
-  &__line::before,
-  &__line::after {
-    content: '';
-    width: 25px;
-    left: 0;
-  }
-
-  &__line::before {
-    top: -7px;
-  }
-
-  &__line::after {
-    top: 7px;
-  }
 }
+
+
 
 .form-search {
   position: relative;
@@ -220,7 +229,7 @@
     height: 20px;
     top: 18px;
     left: 12px;
-    background-image: url('../images/icons/icon-search.svg');
+    background-image: url('../images/icons/icon-search-black.svg');
     background-repeat: no-repeat;
   }
 
@@ -234,7 +243,7 @@
     width: 100%;
 
     &:focus {
-      box-shadow: inset 0 4px 4px rgba($black, 0.25);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
     }
 
     &::placeholder {
@@ -252,7 +261,7 @@
     right: 0;
     height: 100%;
     background-color: $dark-800;
-    border-radius: 0 6px 6px 0px;
+    border-radius: 0 6px 6px 0;
     font-weight: 600;
     font-size: 14px;
     line-height: 1.4;
@@ -267,7 +276,7 @@
     }
 
     &:focus {
-      border-color: $green-200;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
     }
 
     &:active {
@@ -278,13 +287,23 @@
 }
 
 .user-nav {
-  display: flex;
+  &__list {
+    display: flex;
+  }
+
+  &__item{
+
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
 
   &__btn {
     position: relative;
-    width: 38px;
-    height: 38px;
-    padding: 3px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-align: center;
     transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s;
 
     &:hover {
@@ -302,15 +321,10 @@
     }
   }
 
-  &__btn:not(:last-child) {
-    margin-right: 27px;
-  }
-
   &__num {
     position: absolute;
-    width: 18px; //Это кружек!!!
-    height: 18px;
-    border-radius: 50%;
+    padding: 0 3px;
+    border-radius: 9px;
     background-color: $white;
     top: -4px;
     right: 26px;
@@ -321,11 +335,10 @@
   }
 
   &__img {
-    display: block;
     fill: $white;
     width: 32px;
     height: 32px;
-    transition: all 0.3s;
+    margin-top: 4px;
   }
 }
 
@@ -348,11 +361,9 @@
 
   &__content {
     padding: 24px;
-    max-width: 1260px;
-    width: 100%;
-    margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
+    margin: 0 15px;
   }
 
   &__title {
@@ -361,6 +372,7 @@
     line-height: 1.3;
     text-transform: uppercase;
     color: $dark-500;
+    @include line-clamp(3);
   }
 
   &__subtitle {
@@ -374,22 +386,25 @@
     line-height: 1.4;
     color: $dark-500;
     margin-bottom: 45px;
+    @include line-clamp(1);
   }
 
-  &--prev,
-  &--next {
+  &__prev,
+  &__next {
     color: transparent;
     position: absolute;
     top: 50%;
   }
 
-  &--prev {
+  &__prev {
     left: 80px;
   }
 
-  &--next {
+  &__next {
     right: 80px;
   }
+
+
 
   &__btn {
     position: absolute;
@@ -399,30 +414,14 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 6px;
     border: 3px solid transparent;
-    transition: all 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
 
-    &:hover &--prev {
+    &:hover .top-slider__btn-prev {
       fill: $green-900;
     }
 
-    &:hover &--next {
+    &:hover .top-slider__btn-next {
       fill: $green-900;
-    }
-
-    &--prev,
-    &--next {
-      fill: $dark-500;
-      width: 19px;
-      height: 32px;
-      transition: all 0.3s;
-
-      &:disabled {
-        fill: $silver-600;
-      }
-
-      &:focus {
-        fill: #5A5A5A;
-      }
     }
 
     &:hover {
@@ -438,6 +437,22 @@
       background-color: #F3F3F2;
     }
   }
+
+  &__btn-prev,
+  &__btn-next {
+    fill: $dark-500;
+    width: 19px;
+    height: 32px;
+    transition: fill 0.3s;
+
+    &:disabled {
+      fill: $silver-600;
+    }
+
+    &:focus {
+      fill: #5A5A5A;
+    }
+  }
 }
 
 .advantages {
@@ -447,16 +462,21 @@
   &__list {
     display: flex;
     justify-content: center;
+    padding-top: 13px;
   }
 
   &__item {
     max-width: 264px;
     width: 100%;
     padding-left: 74px;
-    padding-top: 13px;
-    background-position: left;
+
+    background-position: left top;
     background-repeat: no-repeat;
     background-size: 50px 50px;
+
+    &:not(:last-child) {
+      margin-right: 65px;
+    }
 
     &--delivery {
       background-image: url('../images/icons/icon-scooter.svg');
@@ -469,10 +489,6 @@
     &--24 {
       background-image: url('../images/icons/icon-24hours.svg');
     }
-
-    &:not(:last-child) {
-      margin-right: 65px;
-    }
   }
 
 
@@ -482,12 +498,14 @@
     line-height: 1.4;
     color: $dark-900;
     margin-bottom: 6px;
+    @include line-clamp(1);
   }
 
   &__text {
     font-size: 14px;
     line-height: 140%;
     color: $dark-500;
+    @include line-clamp(3);
   }
 }
 
@@ -515,7 +533,7 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 4px rgba(99, 166, 14, 0.5);
+      box-shadow: 0 0 0 3px rgba(99, 166, 14, 0.5);
     }
 
     &:active {
@@ -526,7 +544,7 @@
 }
 
 .mixitup-control-active {
-  border-bottom: 3px solid $green-900;
+  border-bottom: 3px solid rgba(99, 166, 14, 0.2);
 }
 
 .filter-products {
@@ -534,8 +552,10 @@
   justify-content: center;
   margin-bottom: 50px;
 
-  &__elem:not(:last-child) {
-    margin-right: 24px;
+  &__elem {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
   }
 
   &__btn {
@@ -578,7 +598,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-    padding: 0 90px 0 32px;
+    padding: 10px 90px 10px 32px;
     border-radius: 4px;
     color: $dark-500;
     text-transform: uppercase;
@@ -587,7 +607,7 @@
     &:nth-child(1) {
       grid-column: span 2;
       color: #FFFFFF;
-      text-shadow: 2px 2px 0px rgba($black, 0.25);
+      text-shadow: 2px 2px 0 rgba($black, 0.25);
     }
   }
 
@@ -595,6 +615,7 @@
     font-size: 12px;
     line-height: 1;
     margin-bottom: 18px;
+    @include line-clamp(1);
   }
 
   &__title {
@@ -603,18 +624,18 @@
     font-size: 30px;
     line-height: 1.4;
     margin-bottom: 12px;
+    @include line-clamp(2);
   }
 
   &__link {
     font-size: 14px;
     line-height: 1;
     padding-bottom: 6px;
-    // border-bottom: 2px solid;
   }
 }
 
 .brands {
-  padding: 85px 0 60px;
+  padding: 72px 0 72px;
 
   &__img {
     opacity: 0.5;
@@ -624,6 +645,10 @@
       opacity: 1;
     }
   }
+
+  &__wrapper {
+    align-items: center;
+  }
 }
 
 .news {
@@ -632,7 +657,7 @@
   &__top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
   }
 
   &__list {
@@ -644,33 +669,37 @@
     position: relative;
     max-width: 410px;
     width: 100%;
-    background-repeat: no-repeat;
-    background-position: top center;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
+  }
+
+  &__img {
+    margin-bottom: 18px;
   }
 
   &__text {
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
-    padding: 258px 18px 18px;
+    padding: 0 18px 18px;
     transition: color 0.3s;
+    @include line-clamp(3);
   }
 
-  &__link:hover {
-    .news__text {
-      color: $green-900;
+  &__link {
+    &:hover {
+      .news__text {
+        color: $green-900;
+      }
     }
   }
 
-  &__all-link {
+  &__all {
     font-weight: 700;
     text-transform: uppercase;
     font-size: 14px;
     line-height: 1.3;
     color: $green-900;
-    padding: 2px;
     border-bottom: 2px solid;
     transition: color 0.3s, box-shadow 0.3s, border-color 0.3s;
 
@@ -679,8 +708,7 @@
     }
 
     &:focus {
-      border-bottom: transparent;
-      box-shadow: 0px 0px 0px 3px #E0EDCF;
+      box-shadow: 0 0 0 3px #E0EDCF;
       border-radius: 3px;
     }
 
@@ -717,21 +745,16 @@
 }
 
 
-
-
-
-
-
-
 .footer {
   background-color: $dark-800;
   color: $white;
+  padding-top: 30px;
 
   &__content {
-    padding: 26px 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    padding-bottom: 18px;
   }
 
   &__logo {
@@ -742,19 +765,16 @@
   &__content-box {
     max-width: 306px;
     width: 100%;
-    margin-right: 98px;
-    margin-bottom: 38px;
+    margin: 0 98px 38px 0;
   }
 
   &__list {
     column-count: 3;
     column-gap: 75px;
-    padding-top: 85px;
   }
 
   &__item {
     margin-bottom: 18px;
-    font-style: normal;
     font-size: 14px;
     line-height: 1.4;
   }
@@ -793,12 +813,16 @@
     color: #4F4F4F;
     border-radius: 6px;
     border: none;
+
+    &:focus {
+      box-shadow: 0 0 0 4px rgba($white, 0.5);
+    }
   }
 
   &__btn {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     height: 100%;
     padding: 0 17px;
     font-weight: 700;
@@ -806,8 +830,7 @@
     line-height: 1.3;
     background-color: $green-900;
     text-transform: uppercase;
-    border: 3px solid transparent;
-    border-radius: 0 6px 6px 0px;
+    border-radius: 0 6px 6px 0;
     transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
 
     &:hover {
@@ -815,19 +838,17 @@
     }
 
     &:focus {
-      border: 3px solid $green-200;
+      box-shadow: 0 0 0 4px rgba($white, 0.5);
     }
 
     &:active {
-      box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
-      color: rgba(255, 255, 255, 0.5);
+      box-shadow: inset 0 4px 4px rgba($black, 0.25);
+      color: rgba($white, 0.5);
     }
   }
 }
 
 .contacts {
-  padding-top: 87px;
-
   &__item {
     margin-bottom: 18px;
   }
@@ -846,24 +867,26 @@
     width: 38px;
     height: 38px;
     padding: 3px;
-    transition: all 0.3s;
+    transition: box-shadow 0.3s, background-color 0.3s;
 
     &:focus {
       border-radius: 3px;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba($white, 0.1);
       box-shadow: inset 0 0 0 3px #EFF6E7;
     }
   }
 
-  &__item:not(:last-child) {
-    margin-right: 4px;
+  &__item {
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
   }
 
   &__icon {
     fill: $white;
     width: 32px;
     height: 32px;
-    transition: all 0.3s;
+    transition: fill 0.3s, opacity 0.3;
 
     &:hover {
       opacity: 0.7;
@@ -879,6 +902,8 @@
   display: flex;
 
   &__item {
-    padding-left: 24px;
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
   }
 }

@@ -18,29 +18,29 @@
     right: 5px;
     width: 44px;
     height: 44px;
-    transition: all 0.3s;
     padding: 9px 6px 6px;
+    transition: box-shadow 0.3s;
 
     &:focus {
       box-shadow: 0 0 0 3px #E0EDCF;
       border-radius: 3px;
     }
 
-    &:hover .product-card__heart-product {
+    &:hover .product-card__icon-heart {
       fill: $yellow-900;
     }
 
-    &:active .product-card__heart-product {
+    &:active .product-card__icon-hear {
       fill: rgba(255, 184, 0, 0.5);
     }
   }
 
-  &__heart-product {
+  &__icon-heart {
     display: block;
     fill: $silver-600;
     width: 32px;
     height: 29px;
-    transition: all 0.3s;
+    transition: fill 0.3s;
   }
 
   &__link {
@@ -56,7 +56,7 @@
       width: 100%;
       height: 100%;
       background-color: rgba($black, 0);
-      transition: all 0.3s;
+      transition: background-color 0.5s;
     }
 
     &:hover:after {
@@ -86,6 +86,7 @@
     color: $dark-900;
     padding: 0 18px;
     margin-bottom: 9px;
+    @include line-clamp(3);
   }
 
   &__bottom {
@@ -116,7 +117,7 @@
     fill: $white;
     width: 16px;
     height: 16px;
-    transition: all 0.3s;
+    transition: fill 0.3s;
   }
 
   &__current {
@@ -157,52 +158,53 @@
     display: block;
     margin: 0 auto;
   }
-}
 
+  &__product-card {
+    min-height: 124px;
+    height: 100%;
+    padding: 12px 0 12px 124px;
+    background-color: $white;
 
-.product-card__stock {
-  min-height: 124px;
-  height: 100%;
-  padding: 12px 0 12px 124px;
-  background-color: $white;
+    .stickers {
+      z-index: 1;
+    }
 
-  .stickers {
-    z-index: 5;
-  }
+    .product-card {
+      &__link {
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        margin: 0;
+        max-width: 100px;
+      }
 
-  .product-card__link {
-    position: absolute;
-    top: 15px;
-    left: 10px;
-    margin: 0;
-    max-width: 100px;
-  }
+      &__name {
+        min-height: 58px;
+        padding: 0;
+        margin: 0;
+      }
 
-  .product-card__name {
-    min-height: 58px;
-    padding: 0;
-    margin: 0;
-  }
+      &__bottom {
+        padding: 0;
+      }
 
-  .product-card__bottom {
-    padding: 0;
-  }
+      &__price {
+        display: flex;
+        align-items: flex-end;
+      }
 
-  .product-card__price {
-    display: flex;
-    align-items: flex-end;
-  }
+      &__current {
+        font-size: 20px;
+        font-weight: 600;
+        margin-right: 12px;
 
-  .product-card__current {
-    font-size: 20px;
-    font-weight: 600;
-    margin-right: 12px;
-  }
-
-  .product-card__current--oldprice {
-    order: 2;
-    font-size: 12px;
-    font-weight: 400;
+        &--oldprice {
+          order: 2;
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
   }
 }
 
@@ -248,8 +250,6 @@
     }
   }
 }
-
-
 
 .stickers {
   position: absolute;
