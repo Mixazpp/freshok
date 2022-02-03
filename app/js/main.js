@@ -5,6 +5,22 @@ $(function () {
     $('.submenu').toggleClass('submenu--active')
 });
 
+$('.mob-nav__cat').on('click', function(){
+  $('.submenu__list').toggleClass('active')
+});
+
+$('.user-nav__search').on('click', function(){
+  $('.form-search').toggleClass('form-search--active')
+});
+
+$('.header-mob__burger').on('click', function(){
+  $('.mob-nav').addClass('active')
+});
+
+$('.mob-nav__close').on('click', function(){
+  $('.mob-nav').removeClass('active')
+});
+
 });
 
 
@@ -13,6 +29,11 @@ var swiper = new Swiper('.top-slider__box', {
 
   slidesPerView: 1,
   spaceBetween: 20,
+
+  pagination: {
+    el: '.top-slider__pagination',
+    clickable: true
+  },
 
   navigation: {
     nextEl: '.top-slider__next',
@@ -26,6 +47,27 @@ var swiper = new Swiper('.brands__slider', {
   slidesPerView: 6,
   spaceBetween: 140,
 
+  breakpoints: {
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 0
+    },
+
+    560: {
+      slidesPerView: 2,
+      spaceBetween: 0
+    },
+
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 70
+    },
+
+    992: {
+      slidesPerView: 5,
+      spaceBetween: 100
+    }
+  }
 
 });
 

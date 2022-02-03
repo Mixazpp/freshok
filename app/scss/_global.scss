@@ -48,6 +48,17 @@ img{
 .logo {
   max-width: 200px;
   height: 60px;
+  @include mq('tablet'){
+    display: none;
+  }
+}
+.logo-mob{
+  display: none;
+  @include mq('tablet'){
+    display: block;
+    width: 37px;
+    height: 40px;
+  }
 }
 
 
@@ -61,6 +72,10 @@ img{
   color: $dark-900;
   margin-bottom: 30px;
   @include line-clamp(1);
+  @include mq('phone'){
+    margin-bottom: 24px;
+    font-size: 24px;
+  }
 }
 
 .button {
@@ -72,6 +87,9 @@ img{
   color: $white;
   padding: 12px 24px;
   transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+  @include mq('phone'){
+    font-size: 14px;
+  }
 
   &:hover {
     background-color: $green-700;
