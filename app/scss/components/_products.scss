@@ -2,14 +2,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 55px 0 18px;
+  padding: 57px 0 18px;
   height: 100%;
   border: 1px solid rgba(185, 141, 141, 0.2);
   border-radius: 6px;
   transition: border-color 0.3s;
   @include mq('phone'){
-    justify-content: flex-end;
-    padding: 48px 0 7px;
+    
+    padding: 57px 0 12px;
   }
 
   &:hover {
@@ -59,6 +59,9 @@
     position: relative;
     display: block;
     margin-bottom: 18px;
+    @include mq('phone'){
+      margin-bottom: 9px;
+    }
 
     &::before {
       content: '';
@@ -110,7 +113,12 @@
     padding: 0 18px;
     margin-bottom: 9px;
     @include line-clamp(3);
+    @include mq('phone'){
+    margin-bottom: 48px;
+    padding: 0 1px;
   }
+  }
+  
 
   &__bottom {
     display: flex;
@@ -119,8 +127,7 @@
     padding: 0 18px 0 21px;
     margin-top: auto;
     @include mq('phone'){
-      padding: 0 12px;
-      margin-top: 34px;
+      padding: 0 9px 0 13px;
     }
   }
 
@@ -179,7 +186,6 @@
   &__content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     grid-gap: 30px;
     margin-bottom: 45px;
     @include mq('desktop'){
@@ -191,16 +197,12 @@
       grid-gap: 20px;
     }
     @include mq('tablet'){
-      grid-template-columns: repeat(1, 1fr);
       grid-gap: 15px;
       margin-bottom: 24px;
     }
     @include mq('phone'){
       margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-
+      grid-template-columns: repeat(1, 1fr);
     }
     
   }
@@ -218,9 +220,12 @@
     height: 100%;
     padding: 12px 0 12px 124px;
     background-color: $white;
+    @include mq('tablet'){
+      padding-left: 110px;
+    }
     @include mq('phone'){
-      height: 124px;
-      width: 300px;
+      margin: 0 22px;
+      padding-left: 124px;
     }
 
     .stickers {

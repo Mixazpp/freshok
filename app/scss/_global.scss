@@ -10,6 +10,25 @@ body {
   @extend %opensans-400;
   background-color: $white;
 }
+body.lock {
+  overflow-y: hidden;
+}
+.overlay{
+  position: fixed; 
+  display: none;
+  width: 100%; 
+  height: 100%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2; 
+  cursor: pointer; 
+  &.on{
+    display: block;
+  }
+}
 
 img{
   object-fit: cover;
@@ -45,23 +64,10 @@ img{
   padding: 0 15px;
 }
 
-.logo {
-  max-width: 200px;
-  height: 60px;
-  @include mq('tablet'){
-    display: none;
-  }
-}
-.logo-mob{
-  display: none;
-  @include mq('tablet'){
-    display: block;
-    width: 37px;
-    height: 40px;
-  }
-}
-
-
+// .logo {
+//   max-width: 200px;
+//   height: 60px;
+// }
 
 .title {
   text-align: center;
@@ -113,5 +119,35 @@ img{
   &:focus {
     box-shadow: 0px 0px 0px 3px #EFF6E7;
     border-radius: 3px;
+  }
+}
+
+.breadcrumbs{
+  background-color: $silver-100;
+  &__list{
+    display: flex;
+    padding: 24px 0;
+  }
+  &__item{
+    position: relative;
+    padding-right: 16px;
+    &::after {
+    position: absolute;
+    content: '';
+    top: 7px;
+    right: 5px;
+    width: 6px;
+    height: 10px;
+    background-image: url('../images/icons/chevron-right.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+    &:last-child{
+      padding-right: 0;
+      &::after{
+        display: none;
+      }
+    }
   }
 }

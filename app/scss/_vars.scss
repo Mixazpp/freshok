@@ -19,7 +19,15 @@ $breakpoints: (
   "tablet-2": 992px,
   "desktop": 1260px
 );
+// @include mq('tablet')
 
+%checkbox-hidden{
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
 
 %opensans-400 {
   font-family: 'OpenSans', sans-serif;

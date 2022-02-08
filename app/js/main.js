@@ -1,5 +1,19 @@
 $(function () {
 
+  $(".filter__slider").ionRangeSlider({
+    type: "double",
+    onStart: function (data){
+      $('.filter__price-from').text(data.from);
+      $('.filter__price-to').text(data.to);
+    },
+    onChange: function (data) {
+      $('.filter__price-from').text(data.from);
+      $('.filter__price-to').text(data.to);
+    },
+  });
+
+  $('.select-style').styler();
+
   $('.submenu__btn').on('click', function(){
     $('.submenu__list').toggleClass('active'),
     $('.submenu').toggleClass('submenu--active')
@@ -15,10 +29,30 @@ $('.user-nav__search').on('click', function(){
 
 $('.header-mob__burger').on('click', function(){
   $('.mob-nav').addClass('active')
+  $('body').toggleClass('lock')
+  $('.overlay').addClass('on')
 });
 
 $('.mob-nav__close').on('click', function(){
   $('.mob-nav').removeClass('active')
+  $('body').toggleClass('lock')
+  $('.overlay').removeClass('on')
+});
+
+$('.filter__btn--categories').on('click', function(){
+  $('.filter__categories-list').toggleClass('filter__close')
+});
+
+$('.filter__btn--offer').on('click', function(){
+  $('.filter__offer-list').toggleClass('filter__close')
+});
+
+$('.filter__btn--brands').on('click', function(){
+  $('.filter__brands-list').toggleClass('filter__close')
+});
+
+$('.filter__btn--price').on('click', function(){
+  $('.filter__price-form').toggleClass('filter__close')
 });
 
 });
@@ -44,9 +78,13 @@ var swiper = new Swiper('.top-slider__box', {
 
 var swiper = new Swiper('.brands__slider', {
   loop: true,
-  slidesPerView: 6,
-  spaceBetween: 140,
-
+  slidesPerView: 2,
+  centeredSlides: true,
+  spaceBetween: 0,
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+  },
   breakpoints: {
     320: {
       slidesPerView: 2,
@@ -54,19 +92,24 @@ var swiper = new Swiper('.brands__slider', {
     },
 
     560: {
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 0
     },
 
     768: {
-      slidesPerView: 3,
-      spaceBetween: 70
+      slidesPerView: 4,
+      spaceBetween: 0
     },
 
-    992: {
+    1300: {
       slidesPerView: 5,
-      spaceBetween: 100
-    }
+      spaceBetween: 0
+    },
+
+    1600: {
+      slidesPerView: 6,
+      spaceBetween: 0
+    },
   }
 
 });

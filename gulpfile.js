@@ -16,6 +16,17 @@ const browserSync = require('browser-sync').create();
 const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
+const fileInclude = require('gulp-file-include');
+
+const htmlInclude = () => {
+  return src(['app/html/*.html'])
+  .pipe(fileInclude ({
+    prefix: '@',
+    basepath: '@file',
+  }))
+  .pipe(dest('app'))
+  .pipe(browserSync.stream());
+}
 
 
 function browsersync() {
@@ -47,6 +58,8 @@ function scripts() {
       'node_modules/jquery/dist/jquery.js',
       'node_modules/swiper/swiper-bundle.js',
       'node_modules/mixitup/dist/mixitup.js',
+      'node_modules/jquery-form-styler/dist/jquery.formstyler.js',
+      'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
       'app/js/main.js'
     ])
     .pipe(concat('main.min.js'))
@@ -127,9 +140,12 @@ function watching() {
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
+  watch(['app/html/**/*.html'], htmlInclude);
+  watch(['app/scss/**/*.scss']).on('change', browserSync.reload);
 }
 
 
+exports.htmlInclude = htmlInclude;
 exports.svgSprites = svgSprites;
 exports.styles = styles;
 exports.scripts = scripts;
@@ -140,4 +156,4 @@ exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
 
 
-exports.default = parallel(svgSprites, styles, scripts, browsersync, watching);
+exports.default = parallel(svgSprites, styles, scripts, htmlInclude, browsersync, watching);

@@ -1,0 +1,96 @@
+.top-products {
+  padding: 77px 0 70px;
+  @include mq('phone'){
+    padding: 41px 0;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 50px;
+    @include mq('desktop'){
+      grid-template-columns: repeat(3, 1fr);
+    }
+   
+    @include mq('tablet'){
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 5px;
+      margin-bottom: 35px;
+    }
+    @include mq('phone'){
+      grid-gap: 5px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__btn {
+    display: block;
+    margin: 0 auto;
+    background-color: #fff;
+    color: $green-900;
+    border: 1px solid $green-900;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    @include mq('phone'){
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: $green-100;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(99, 166, 14, 0.5);
+    }
+
+    &:active {
+      box-shadow: inset 0 10px 4px rgba(0, 0, 0, 0.1);
+      color: $green-900;
+    }
+  }
+}
+
+.mixitup-control-active {
+  border-bottom: 3px solid rgba(99, 166, 14, 0.2);
+}
+
+.filter-products {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  @include mq('phone'){
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  &__elem {
+    @include mq('phone'){
+      margin: 0 15px 15px;
+    }
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+
+  &__btn {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: $dark-500;
+    transition: box-shadow 0.3s, color 0.3s;
+
+    &:hover {
+      color: $green-900;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+      border-radius: 3px;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+  }
+}

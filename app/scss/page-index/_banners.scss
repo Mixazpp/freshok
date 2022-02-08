@@ -1,0 +1,86 @@
+.banners {
+  padding-bottom: 72px;
+  @include mq('phone'){
+    padding-bottom: 33px;
+  }
+
+  &__list {
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+ 
+    @include mq('tablet-2'){
+      grid-gap: 10px;
+    }
+    @include mq('tablet'){
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 0;
+    }
+  }
+
+  &__item {
+    min-height: 300px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    padding: 10px 90px 10px 32px;
+    border-radius: 4px;
+    color: $dark-500;
+    text-transform: uppercase;
+    font-weight: 700;
+    @include mq('tablet-2'){
+      width: 100%;
+      padding-right: 10px;
+    }
+    @include mq('tablet'){
+      justify-content: flex-end;
+      padding-bottom: 30px;
+      padding-right: 90px;
+      margin-bottom: 15px;
+    }
+
+    &:nth-child(1) {
+      grid-column: span 2;
+      color: #FFFFFF;
+      text-shadow: 2px 2px 0 rgba($black, 0.25);
+      @include mq('tablet'){
+        grid-column: span 1;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 18px;
+    @include line-clamp(1);
+    @include mq('phone'){
+      margin-bottom: 15px;
+    }
+  }
+
+  &__title {
+    max-width: 346px;
+    @extend %ruda-600;
+    font-size: 30px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    @include line-clamp(2);
+    @include mq('tablet-2'){
+      font-size: 24px;
+    }
+    @include mq('tablet'){
+      margin-bottom: 77px;  
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 1;
+    padding-bottom: 6px;
+  }
+}
