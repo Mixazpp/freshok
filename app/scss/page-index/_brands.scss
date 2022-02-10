@@ -1,6 +1,7 @@
 .brands {
   padding: 72px 0;
-  @include mq('tablet-2'){
+
+  @include mq('tablet-2') {
     padding: 48px 0;
   }
 
@@ -16,5 +17,5 @@
   &__wrapper {
     align-items: center;
   }
- 
+
 }

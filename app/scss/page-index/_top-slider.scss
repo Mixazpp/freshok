@@ -4,10 +4,12 @@
 
   &__wrapper {
     height: 600px;
-    @include mq('tablet-2'){
+
+    @include mq('tablet-2') {
       height: 500px;
     }
-    @include mq('phone'){
+
+    @include mq('phone') {
       height: 320px;
     }
   }
@@ -26,10 +28,12 @@
     background-color: rgba($white, 0.8);
     border-radius: 4px;
     margin: 0 15px;
-    @include mq('tablet'){
+
+    @include mq('tablet') {
       margin: 0;
     }
-    @include mq('phone'){
+
+    @include mq('phone') {
       border-radius: 0;
       padding: 15px 15px 27px;
       margin: 10px -15px 0;
@@ -43,10 +47,12 @@
     text-transform: uppercase;
     color: $dark-500;
     @include line-clamp(3);
-    @include mq('tablet'){
+
+    @include mq('tablet') {
       font-size: 40px;
     }
-    @include mq('phone'){
+
+    @include mq('phone') {
       font-size: 20px;
       margin-bottom: 10px;
     }
@@ -64,11 +70,13 @@
     color: $dark-500;
     margin-bottom: 45px;
     @include line-clamp(2);
-    @include mq('tablet'){
+
+    @include mq('tablet') {
       margin-bottom: 30px;
     }
-    @include mq('phone'){
-     margin-bottom: 38px;
+
+    @include mq('phone') {
+      margin-bottom: 38px;
     }
   }
 
@@ -119,7 +127,8 @@
     &:active {
       background-color: #F3F3F2;
     }
-    @include mq('desktop'){
+
+    @include mq('desktop') {
       display: none;
     }
   }
@@ -140,17 +149,21 @@
     }
   }
 }
-.swiper-pagination-bullet{
+
+.swiper-pagination-bullet {
   width: 10px;
   height: 10px;
   background-color: $white;
   border: 1px solid $silver-600;
   opacity: 1;
-  &-active{
-  background-color: $green-900;
+
+  &-active {
+    background-color: $green-900;
   }
+
   display: none;
-  @include mq('desktop'){
+
+  @include mq('desktop') {
     display: inline-block;
   }
 }

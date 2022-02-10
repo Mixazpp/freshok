@@ -1,0 +1,14 @@
+.contacts {
+  &__item {
+    margin-bottom: 13px;
+
+    @include mq('phone') {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}

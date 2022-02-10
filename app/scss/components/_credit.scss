@@ -1,0 +1,9 @@
+.credit {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+}

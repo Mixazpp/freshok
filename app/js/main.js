@@ -1,5 +1,36 @@
 $(function () {
 
+  $('.filter__btn-open').on('click', function () {
+    $('.filter').addClass('filter--active');
+    $('body').toggleClass('lock')
+  $('.overlay').addClass('on')
+  });
+  $('.filter__btn-close').on('click', function () {
+    $('.filter').removeClass('filter--active');
+    $('body').toggleClass('lock')
+  $('.overlay').removeClass('on')
+  });
+
+
+  $('.catalog-content__btn').on('click', function (){   
+    $('.catalog-content__btn').removeClass('catalog-content__btn--active');
+    $(this).addClass('catalog-content__btn--active');
+  });
+
+  $('.button-two').on('click', function () {
+    $('.catalog-content__list').addClass('catalog-content__list--two');
+  });
+  $('.button-three').on('click', function () {
+    $('.catalog-content__list').removeClass('catalog-content__list--two');
+  });
+
+  $(".star").rateYo({
+    numStars: 1,
+    normalFill: "#A0A0A0",
+    ratedFill: "#FFB800",
+    starWidth: "17px",
+  });
+
   $(".filter__slider").ionRangeSlider({
     type: "double",
     onStart: function (data){
@@ -19,9 +50,7 @@ $(function () {
     $('.submenu').toggleClass('submenu--active')
 });
 
-$('.mob-nav__cat').on('click', function(){
-  $('.submenu__list').toggleClass('active')
-});
+
 
 $('.user-nav__search').on('click', function(){
   $('.form-search').toggleClass('form-search--active')
@@ -33,26 +62,31 @@ $('.header-mob__burger').on('click', function(){
   $('.overlay').addClass('on')
 });
 
-$('.mob-nav__close').on('click', function(){
+$('.mob-nav__close, .mob-nav a, .submenu__list a').on('click', function(){
   $('.mob-nav').removeClass('active')
   $('body').toggleClass('lock')
   $('.overlay').removeClass('on')
+  $('.submenu__list').removeClass('active')
 });
 
 $('.filter__btn--categories').on('click', function(){
   $('.filter__categories-list').toggleClass('filter__close')
+  $('.filter__btn--categories').toggleClass('btn__close')
 });
 
 $('.filter__btn--offer').on('click', function(){
   $('.filter__offer-list').toggleClass('filter__close')
+  $('.filter__btn--offer').toggleClass('btn__close')
 });
 
 $('.filter__btn--brands').on('click', function(){
   $('.filter__brands-list').toggleClass('filter__close')
+  $('.filter__btn--brands').toggleClass('btn__close')
 });
 
 $('.filter__btn--price').on('click', function(){
   $('.filter__price-form').toggleClass('filter__close')
+  $('.filter__btn--price').toggleClass('btn__close')
 });
 
 });
