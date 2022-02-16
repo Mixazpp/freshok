@@ -9,6 +9,7 @@
   "author": "Mixail",
   "license": "ISC",
   "devDependencies": {
+    "@fancyapps/ui": "github:fancyapps/ui",
     "browser-sync": "^2.27.7",
     "del": "^6.0.0",
     "gulp": "^4.0.2",

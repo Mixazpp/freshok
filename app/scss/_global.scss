@@ -131,6 +131,9 @@ img {
 
 .breadcrumbs {
   background-color: $silver-100;
+  @include mq('tablet'){
+    font-size: 14px;
+  }
 
   &__list {
     display: flex;
